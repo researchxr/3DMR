@@ -56,9 +56,9 @@ $ unrar x BuildFile.rar
 $ 7z x data_example.7z
 
 # Compile
-$ g++ -o Project main.cpp -fPIC -I/path/to/qt/include -L/path/to/qt/lib -lQt5Core -lQt5Gui -lQt5Widgets
+$ g++ -o 3DMR main.cpp -fPIC -I/path/to/qt/include -L/path/to/qt/lib -lQt5Core -lQt5Gui -lQt5Widgets
 
-# Run the app
+# Run the project
 $ ./Project
 ```
 
