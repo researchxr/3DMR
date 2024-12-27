@@ -20,7 +20,9 @@
 </p>
 
 
-![screenshot](3DMR.gif)
+https://github.com/user-attachments/assets/51965db6-313c-46e3-ac19-14082ebaf55d
+
+
 
 ## 🚩Key Features
 
@@ -55,8 +57,6 @@ $ g++ -o 3DMR main.cpp -fPIC -I/path/to/qt/include -L/path/to/qt/lib -lQt5Core -
 $ ./Project
 ```
 
-
-
 ## 🌏Credits
 
 This software uses the following open source packages:
@@ -64,7 +64,6 @@ This software uses the following open source packages:
 - [VTK](https://vtk.org/)
 - [Qt designer](https://www.pythonguis.com/installation/install-qt-designer-standalone/)
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/zh-hans/#vs-section)
-
 
 ## 📜 License
 
