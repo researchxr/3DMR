@@ -39,13 +39,6 @@
 * Volume and Surface Area Calculation of 3D Models
   * Computes the volume and surface area of the reconstructed tissue model and displays the results in a label box.
 
-## 🔧Pull Request Steps
-
-TOAST UI products are open source, so you can create a pull request(PR) after you fix issues. Run npm scripts and develop yourself with the following process.
-
-### Setup
-
-
 ## 🚀How To Use
 ```shell
 # Clone this repository
