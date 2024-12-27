@@ -1,12 +1,3 @@
-/**********************************************************************
-
-  ÎÄ¼şÃû: ProjectMainWindow.cpp
-  Copyright (c) °¢BinÏÈÉú. All rights reserved.
-  ¸ü¶àĞÅÏ¢Çë·ÃÎÊ: 
-  http://blog.csdn.net/webzhuce 
-
-**********************************************************************/
-
 #include "ProjectMainWindow.h"
 #include <QFileDialog>
 #include <QDir>
@@ -178,7 +169,7 @@
 	color[2] /= 2.0;
 	riw[2]->GetRenderer()->SetBackground(color);
 
-	planeWidget[2]->SetTexturePlaneProperty(ipwProp);//ÎÆÀí
+	planeWidget[2]->SetTexturePlaneProperty(ipwProp);//çº¹ç†
 	planeWidget[2]->TextureInterpolateOff();
 	planeWidget[2]->SetResliceInterpolateToLinear();
 	planeWidget[2]->SetInputConnection(reader->GetOutputPort());
@@ -205,7 +196,7 @@
         color[2] /= 2.0;
         riw[i]->GetRenderer()->SetBackground(color);
 
-        planeWidget[i]->SetTexturePlaneProperty(ipwProp);//ÎÆÀí
+        planeWidget[i]->SetTexturePlaneProperty(ipwProp);//çº¹ç†
         planeWidget[i]->TextureInterpolateOff();
         planeWidget[i]->SetResliceInterpolateToLinear();
         planeWidget[i]->SetInputConnection(reader->GetOutputPort());
@@ -218,10 +209,10 @@
         planeWidget[i]->InteractionOn();
     }*/
 
-	//// ÉèÖÃm_QVTKWidgetµÄäÖÈ¾Æ÷
+	//// è®¾ç½®m_QVTKWidgetçš„æ¸²æŸ“å™¨
 	//m_QVTKWidget->GetRenderWindow()->AddRenderer(m_pRenderder);
 
-	////Á¬½Ó´ò¿ªµÄĞÅºÅÓëÏàÓ¦µÄ²Û
+	////è¿æ¥æ‰“å¼€çš„ä¿¡å·ä¸ç›¸åº”çš„æ§½
 	//connect( m_OpenAction, SIGNAL( triggered() ), this, SLOT( onOpenSlot() ) ); 
 
 	
@@ -241,21 +232,21 @@ void ProjectMainWindow::onOpenSlot()
 	filter = "DICM image file (*.dcm)";
 
 	QDir dir;
-	QString fileName = QFileDialog::getOpenFileName( this, QString(tr("´ò¿ªÍ¼Ïñ")), dir.absolutePath() , filter );
+	QString fileName = QFileDialog::getOpenFileName( this, QString(tr("æ‰“å¼€å›¾åƒ")), dir.absolutePath() , filter );
 	if ( fileName.isEmpty() == true ) 
         return;
 
-	// Ö§³Ö´øÖĞÎÄÂ·¾¶µÄ¶ÁÈ¡
+	// æ”¯æŒå¸¦ä¸­æ–‡è·¯å¾„çš„è¯»å–
 	QByteArray ba = fileName.toLocal8Bit();
 	const char *fileName_str = ba.data();
 }
 
 void ProjectMainWindow::updateCoords(vtkObject* obj)
 {
-	// »ñÈ¡½»»¥Æ÷
+	// è·å–äº¤äº’å™¨
 	vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::SafeDownCast(obj);
 
-	// »ñÈ¡Êó±êµÄµ±Ç°Î»ÖÃ
+	// è·å–é¼ æ ‡çš„å½“å‰ä½ç½®
 	int event_pos[2];
 	iren->GetEventPosition(event_pos);
   
@@ -278,13 +269,13 @@ ProjectMainWindow::ProjectMainWindow()
 	reader->Update();*/
 	ren = vtkSmartPointer< vtkRenderer >::New();
 
-	// ÉèÖÃm_QVTKWidgetµÄäÖÈ¾Æ÷
+	// è®¾ç½®m_QVTKWidgetçš„æ¸²æŸ“å™¨
 	this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
 	
-	//// ÉèÖÃm_QVTKWidgetµÄäÖÈ¾Æ÷
+	//// è®¾ç½®m_QVTKWidgetçš„æ¸²æŸ“å™¨
 	//m_QVTKWidget->GetRenderWindow()->AddRenderer(m_pRenderder);
 
-	////Á¬½Ó´ò¿ªµÄĞÅºÅÓëÏàÓ¦µÄ²Û
+	////è¿æ¥æ‰“å¼€çš„ä¿¡å·ä¸ç›¸åº”çš„æ§½
 	connect(this->actionJPG, SIGNAL(triggered()), this, SLOT(onOpenSlotJPG()));
 	connect(this->actionDICOM, SIGNAL(triggered()), this, SLOT(onOpenSlotDCM()));
 	connect(this->actionBMP, SIGNAL(triggered()), this, SLOT(onOpenSlotBMP()));
@@ -319,7 +310,7 @@ ProjectMainWindow::ProjectMainWindow()
 
 	void ProjectMainWindow::onOpenSlotDCM()
 	{
-	QString fileName = QFileDialog::getOpenFileName( this, QString(tr("´ò¿ªÍ¼Ïñ")), "F:/photo/");
+	QString fileName = QFileDialog::getOpenFileName( this, QString(tr("æ‰“å¼€å›¾åƒ")), "F:/photo/");
 	this->qvtkWidget_4->GetRenderWindow()->RemoveRenderer(ren);
 	ren = vtkSmartPointer< vtkRenderer >::New();
 	this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
@@ -330,7 +321,7 @@ ProjectMainWindow::ProjectMainWindow()
 	else
 	{
 		QFile file(fileName);
-		//´ò¿ªÖ»¶ÁÎÄ¼ş
+		//æ‰“å¼€åªè¯»æ–‡ä»¶
 		bool isOK = file.open(QIODevice::ReadOnly);
 		if (isOK = true)
 		{
@@ -391,12 +382,12 @@ ProjectMainWindow::ProjectMainWindow()
 		file.close();
 
 	}
-	// Ö§³Ö´øÖĞÎÄÂ·¾¶µÄ¶ÁÈ¡
+	// æ”¯æŒå¸¦ä¸­æ–‡è·¯å¾„çš„è¯»å–
 	QByteArray ba = fileName.toLocal8Bit();
 	const char *fileName_str = ba.data();
 	}
 	
-	//´ò¿ªJPGÍ¼Ïñ
+	//æ‰“å¼€JPGå›¾åƒ
 	void ProjectMainWindow::onOpenSlotJPG()
 	{
 		QString filter;
@@ -405,8 +396,8 @@ ProjectMainWindow::ProjectMainWindow()
 		ren = vtkSmartPointer< vtkRenderer >::New();
 		this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
 		//QDir dir;
-		//QString fileName = QFileDialog::getOpenFileName( this, QString(tr("´ò¿ªÍ¼Ïñ")), dir.absolutePath() , filter );
-		QString fileName = QFileDialog::getOpenFileName(this, QString(tr("´ò¿ªÍ¼Ïñ")), "F:/photo/", filter);
+		//QString fileName = QFileDialog::getOpenFileName( this, QString(tr("æ‰“å¼€å›¾åƒ")), dir.absolutePath() , filter );
+		QString fileName = QFileDialog::getOpenFileName(this, QString(tr("æ‰“å¼€å›¾åƒ")), "F:/photo/", filter);
 		if (fileName.isEmpty() == true)
 		{
 			return;
@@ -414,7 +405,7 @@ ProjectMainWindow::ProjectMainWindow()
 		else
 		{
 			QFile file(fileName);
-			//´ò¿ªÖ»¶ÁÎÄ¼ş
+			//æ‰“å¼€åªè¯»æ–‡ä»¶
 			bool isOK = file.open(QIODevice::ReadOnly);
 			if (isOK = true)
 			{
@@ -457,13 +448,13 @@ ProjectMainWindow::ProjectMainWindow()
 			}
 			file.close();
 		}
-		// Ö§³Ö´øÖĞÎÄÂ·¾¶µÄ¶ÁÈ¡
+		// æ”¯æŒå¸¦ä¸­æ–‡è·¯å¾„çš„è¯»å–
 		QByteArray ba = fileName.toLocal8Bit();
 		const char *fileName_str = ba.data();
 		
 	}
 
-	//´ò¿ªBMPÍ¼Ïñ
+	//æ‰“å¼€BMPå›¾åƒ
 	void ProjectMainWindow::onOpenSlotBMP()
 	{
 		QString filter;
@@ -471,7 +462,7 @@ ProjectMainWindow::ProjectMainWindow()
 		this->qvtkWidget_4->GetRenderWindow()->RemoveRenderer(ren);
 		ren = vtkSmartPointer< vtkRenderer >::New();
 		this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
-		QString fileName = QFileDialog::getOpenFileName(this, QString(tr("´ò¿ªÍ¼Ïñ")), "F:/photo/", filter);
+		QString fileName = QFileDialog::getOpenFileName(this, QString(tr("æ‰“å¼€å›¾åƒ")), "F:/photo/", filter);
 		if (fileName.isEmpty() == true)
 		{
 			return;
@@ -479,7 +470,7 @@ ProjectMainWindow::ProjectMainWindow()
 		else
 		{
 			QFile file(fileName);
-			//´ò¿ªÖ»¶ÁÎÄ¼ş
+			//æ‰“å¼€åªè¯»æ–‡ä»¶
 			bool isOK = file.open(QIODevice::ReadOnly);
 			if (isOK = true)
 			{
@@ -490,7 +481,7 @@ ProjectMainWindow::ProjectMainWindow()
 				reader->SetFileName(fileName_str);
 				vtkTransform *t1 = vtkTransform::New();
 				t1->RotateZ(0);
-				reader->SetTransform(t1); //¿ØÖÆÍ¼ÏñµÄĞı×ª
+				reader->SetTransform(t1); //æ§åˆ¶å›¾åƒçš„æ—‹è½¬
 				reader->Update();
 
 				this->label_3->setText("name");
@@ -519,13 +510,13 @@ ProjectMainWindow::ProjectMainWindow()
 			}
 			file.close();
 		}
-		// Ö§³Ö´øÖĞÎÄÂ·¾¶µÄ¶ÁÈ¡
+		// æ”¯æŒå¸¦ä¸­æ–‡è·¯å¾„çš„è¯»å–
 		QByteArray ba = fileName.toLocal8Bit();
 		const char *fileName_str = ba.data();
 	}
 	void ProjectMainWindow::onOpenlistphoto()
 	{
-		QString fileName = QFileDialog::getExistingDirectory(this, QString(tr("´ò¿ªÍ¼Ïñ")), "F:/photo/");
+		QString fileName = QFileDialog::getExistingDirectory(this, QString(tr("æ‰“å¼€å›¾åƒ")), "F:/photo/");
 		this->qvtkWidget_4->GetRenderWindow()->RemoveRenderer(ren);
 		ren = vtkSmartPointer< vtkRenderer >::New();
 		
@@ -537,7 +528,7 @@ ProjectMainWindow::ProjectMainWindow()
 		else
 		{
 			QFile file(fileName);
-			//´ò¿ªÖ»¶ÁÎÄ¼ş
+			//æ‰“å¼€åªè¯»æ–‡ä»¶
 			bool isOK = file.open(QIODevice::ReadOnly);
 			if (isOK = true)
 			{
@@ -547,7 +538,7 @@ ProjectMainWindow::ProjectMainWindow()
 				dicomImagereader->SetDirectoryName(fileName_str);
 				dicomImagereader->SetDataByteOrderToLittleEndian();
 				dicomImagereader->Update();
-				//dicomImagereader->SetFileNameSliceSpacing(11);//ÉèÖÃ·Ö¸ô´óĞ¡
+				//dicomImagereader->SetFileNameSliceSpacing(11);//è®¾ç½®åˆ†éš”å¤§å°
 				if (dicomImagereader->GetPatientName())
 				{
 					this->label_3->setText(dicomImagereader->GetPatientName());
@@ -575,8 +566,8 @@ ProjectMainWindow::ProjectMainWindow()
 				imageViewer->SetInputConnection(readerImageCast->GetOutputPort());
 				
 				this->horizontalSlider_4->setMaximum(imageViewer->GetSliceMax());
-				//ÏÔÊ¾µ±Ç°Í¼Æ¬ĞÅÏ¢
-				cout <<"»¬¶¯Ìõ×î´óÖµ"<< this->horizontalSlider_4->maximum() << endl;
+				//æ˜¾ç¤ºå½“å‰å›¾ç‰‡ä¿¡æ¯
+				cout <<"æ»‘åŠ¨æ¡æœ€å¤§å€¼"<< this->horizontalSlider_4->maximum() << endl;
 				//imageViewer->SetSlice(this->horizontalSlider_4->sliderPosition());
 				//connect(this->horizontalSlider_4, &QSlider::valueChanged ,this->label_9, &QLabel::setText);
 				imageViewer->UpdateDisplayExtent();
@@ -603,7 +594,7 @@ ProjectMainWindow::ProjectMainWindow()
 				imageViewerButton = vtkSmartPointer<vtkImageViewer2>::New();
 				imageViewerButton->SetInputConnection(readerImageCast->GetOutputPort());
 				imageViewerButton->UpdateDisplayExtent();
-				//ÏÔÊ¾µ½wighet
+				//æ˜¾ç¤ºåˆ°wighet
 				imageViewer->SetRenderWindow(this->qvtkWidget_4->GetRenderWindow());
 				imageViewer->SetRenderer(ren);
 				imageViewer->SetSliceOrientationToXY();
@@ -616,7 +607,7 @@ ProjectMainWindow::ProjectMainWindow()
 			file.close();
 
 		}
-		// Ö§³Ö´øÖĞÎÄÂ·¾¶µÄ¶ÁÈ¡
+		// æ”¯æŒå¸¦ä¸­æ–‡è·¯å¾„çš„è¯»å–
 		QByteArray ba = fileName.toLocal8Bit();
 		const char *fileName_str = ba.data();
 		
@@ -625,7 +616,7 @@ ProjectMainWindow::ProjectMainWindow()
 	{
 		vtkSmartPointer<vtkPolyDataWriter> vtkWriter = vtkSmartPointer<vtkPolyDataWriter>::New();
 		vtkWriter->SetInputData(skinStripper->GetOutput());
-		QString fileName = QFileDialog::getSaveFileName(this,QString::fromLocal8Bit("ÎÄ¼şÁí´æÎª"),"",tr("Config Files (*.vtk)"));
+		QString fileName = QFileDialog::getSaveFileName(this,QString::fromLocal8Bit("æ–‡ä»¶å¦å­˜ä¸º"),"",tr("Config Files (*.vtk)"));
 		
 		vtkWriter->SetFileName("1.vtk");
 		vtkWriter->Write();
@@ -634,15 +625,15 @@ ProjectMainWindow::ProjectMainWindow()
 	{
 		//ren = vtkSmartPointer< vtkRenderer >::New();
 		//this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
-		//»ñÈ¡ĞÅºÅ½ÓÊÜÕß
+		//è·å–ä¿¡å·æ¥å—è€…
 		QObject *mySender = sender();
-		//×ª»»Îª°´Å¥ÀàĞÍ
+		//è½¬æ¢ä¸ºæŒ‰é’®ç±»å‹
 		QPushButton *p = (QPushButton *)mySender;
 
 			
 		if (NULL != p)
 		{
-			//»ñÈ¡°´Å¥ÄÚÈİ
+			//è·å–æŒ‰é’®å†…å®¹
 			QString str = p->text();
 			if (str=="+")
 			{
@@ -709,9 +700,9 @@ ProjectMainWindow::ProjectMainWindow()
 		//this->qvtkWidget_4->GetRenderWindow()->RemoveRenderer(ren);
 		//ren = vtkSmartPointer< vtkRenderer >::New();
 		//this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
-		//»ñÈ¡ĞÅºÅ½ÓÊÜÕß
+		//è·å–ä¿¡å·æ¥å—è€…
 		QObject *mySender = sender();
-		//×ª»»Îª»¬¿éÀàĞÍ
+		//è½¬æ¢ä¸ºæ»‘å—ç±»å‹
 		QSlider *p = (QSlider *)mySender;
 		if (NULL != p)
 		{
@@ -749,9 +740,9 @@ ProjectMainWindow::ProjectMainWindow()
 		//ren = vtkSmartPointer< vtkRenderer >::New();
 		//this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
 		this->horizontalSlider_3->setMaximum(2048);
-		//»ñÈ¡ĞÅºÅ½ÓÊÜÕß
+		//è·å–ä¿¡å·æ¥å—è€…
 		QObject *mySender = sender();
-		//×ª»»Îª°´Å¥ÀàĞÍ
+		//è½¬æ¢ä¸ºæŒ‰é’®ç±»å‹
 		QSlider *p = (QSlider *)mySender;
 		if (NULL != p)
 		{
@@ -802,25 +793,25 @@ ProjectMainWindow::ProjectMainWindow()
 		volumeProperty->SetColor(colorTransferFunction);
 		volumeProperty->SetScalarOpacity(opactiyTransferFunction);
 		volumeProperty->SetGradientOpacity(gradientTransferFunction);
-		volumeProperty->ShadeOn();//ÒõÓ°
-		//volumeProperty->SetInterpolationTypeToLinear();//Ö±ÏßÓëÑùÌõ²åÖµÖ®¼äÖğ·¢º¯Êı
-		volumeProperty->SetAmbient(0.2);//»·¾³¹âÏµÊı
-		volumeProperty->SetDiffuse(0.9);//Âş·´Éä
-		volumeProperty->SetSpecular(0.2);//¸ß¹âÏµÊı
-		volumeProperty->SetSpecularPower(10);//¸ß¹âÇ¿¶È
+		volumeProperty->ShadeOn();//é˜´å½±
+		//volumeProperty->SetInterpolationTypeToLinear();//ç›´çº¿ä¸æ ·æ¡æ’å€¼ä¹‹é—´é€å‘å‡½æ•°
+		volumeProperty->SetAmbient(0.2);//ç¯å¢ƒå…‰ç³»æ•°
+		volumeProperty->SetDiffuse(0.9);//æ¼«åå°„
+		volumeProperty->SetSpecular(0.2);//é«˜å…‰ç³»æ•°
+		volumeProperty->SetSpecularPower(10);//é«˜å…‰å¼ºåº¦
 
 		vtkSmartPointer<vtkVolumeRayCastCompositeFunction>compositeRaycastFunction = vtkSmartPointer<vtkVolumeRayCastCompositeFunction>::New();
 
 
 		volumeMapper = vtkSmartPointer<vtkVolumeRayCastMapper>::New();
-		volumeMapper->SetVolumeRayCastFunction(compositeRaycastFunction);//ÔØÈëÌå»æÖÆ·½·¨
+		volumeMapper->SetVolumeRayCastFunction(compositeRaycastFunction);//è½½å…¥ä½“ç»˜åˆ¶æ–¹æ³•
 		volumeMapper->SetInputConnection(readerImageCast->GetOutputPort());
 		/*fixedPointVolumeMapper=vtkFixedPointVolumeRayCastMapper::New();
 		fixedPointVolumeMapper->SetInput(dicomImagereader->GetOutput());*/
 
 		vtkSmartPointer<vtkVolume>volume = vtkSmartPointer<vtkVolume>::New();
 		volume->SetMapper(volumeMapper);
-		volume->SetProperty(volumeProperty);//ÉèÖÃÌåÊôĞÔ
+		volume->SetProperty(volumeProperty);//è®¾ç½®ä½“å±æ€§
 
 		vtkRenderWindowInteractor *iren = this->qvtkWidget_4->GetInteractor();
 		ren->AddVolume(volume);
@@ -897,24 +888,24 @@ ProjectMainWindow::ProjectMainWindow()
 		skin3->GetProperty()->SetColor(1, 0.2, 0);
 		skin3->GetProperty()->SetOpacity(0.5);
 
-		//³éÈ¡¹ÇÍ·
-		//³éÈ¡µÈÖµÃæÎª¹ÇÍ·µÄĞÅÏ¢
+		//æŠ½å–éª¨å¤´
+		//æŠ½å–ç­‰å€¼é¢ä¸ºéª¨å¤´çš„ä¿¡æ¯
 		vtkMarchingCubes *boneExtractor = vtkMarchingCubes::New();
 		boneExtractor->SetInputConnection(readerImageCast->GetOutputPort());
-		boneExtractor->SetValue(0, 1150); //ÉèÖÃÌáÈ¡µÄµÈÖµĞÅÏ¢
+		boneExtractor->SetValue(0, 1150); //è®¾ç½®æå–çš„ç­‰å€¼ä¿¡æ¯
 		vtkPolyDataNormals *boneNormals = vtkPolyDataNormals::New();
 		boneNormals->SetInputConnection(boneExtractor->GetOutputPort());
 		boneNormals->SetFeatureAngle(60.0);
-		//ÌŞ³ı¾ÉµÄ»ò·Ï³ıµÄÊı¾İµ¥Ôª£¬Ìá¸ß»æÖÆËÙ¶È
+		//å‰”é™¤æ—§çš„æˆ–åºŸé™¤çš„æ•°æ®å•å…ƒï¼Œæé«˜ç»˜åˆ¶é€Ÿåº¦
 		vtkStripper *boneStripper = vtkStripper::New();
-		//×¢Òâ£ºvtk6.0ÒÔºóµÄ°æ±¾£¬¹ÜµÀµÄÁ¬½Óº¯ÊıĞŞ¸ÄÎªÁËSetInputConnection()ºÍGetOutputPort().
+		//æ³¨æ„ï¼švtk6.0ä»¥åçš„ç‰ˆæœ¬ï¼Œç®¡é“çš„è¿æ¥å‡½æ•°ä¿®æ”¹ä¸ºäº†SetInputConnection()å’ŒGetOutputPort().
 		boneStripper->SetInputConnection(boneNormals->GetOutputPort());
-		//½¨Á¢Ó³Éä
+		//å»ºç«‹æ˜ å°„
 		vtkPolyDataMapper *boneMapper = vtkPolyDataMapper::New();
-		//×¢Òâ£ºvtk6.0ÒÔºóµÄ°æ±¾£¬¹ÜµÀµÄÁ¬½Óº¯ÊıĞŞ¸ÄÎªÁËSetInputConnection()ºÍGetOutputPort().
+		//æ³¨æ„ï¼švtk6.0ä»¥åçš„ç‰ˆæœ¬ï¼Œç®¡é“çš„è¿æ¥å‡½æ•°ä¿®æ”¹ä¸ºäº†SetInputConnection()å’ŒGetOutputPort().
 		boneMapper->SetInputConnection(boneStripper->GetOutputPort());
 		boneMapper->ScalarVisibilityOff();
-		//½¨Á¢½ÇÉ«
+		//å»ºç«‹è§’è‰²
 		vtkActor *bone = vtkActor::New();
 		bone->SetMapper(boneMapper);
 		bone->GetProperty()->SetDiffuseColor(1, 1, .9412);
@@ -925,7 +916,7 @@ ProjectMainWindow::ProjectMainWindow()
 		mapOutline->SetInputConnection(outlineData->GetOutputPort());
 		vtkActor *outline = vtkActor::New();
 		outline->SetMapper(mapOutline);
-		outline->GetProperty()->SetColor(0, 1, 0); //ÉèÖÃÏÔÊ¾±ß¿òµÄÑÕÉ«
+		outline->GetProperty()->SetColor(0, 1, 0); //è®¾ç½®æ˜¾ç¤ºè¾¹æ¡†çš„é¢œè‰²
 
 		vtkCamera *aCamera = vtkCamera::New();
 		aCamera->SetViewUp(0, 0, -1);
@@ -958,7 +949,7 @@ ProjectMainWindow::ProjectMainWindow()
 	}
 	void ProjectMainWindow::three_gray()
 	{
-		//»ñÈ¡ĞÅºÅ½ÓÊÜÕß
+		//è·å–ä¿¡å·æ¥å—è€…
 		cout << "ni" << endl;
 		if (this->comboBox->currentIndex() == 0)
 		{
@@ -966,24 +957,24 @@ ProjectMainWindow::ProjectMainWindow()
 			this->qvtkWidget_4->GetRenderWindow()->RemoveRenderer(ren);
 			ren = vtkSmartPointer< vtkRenderer >::New();
 			this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
-			//³éÈ¡¹ÇÍ·
-			//³éÈ¡µÈÖµÃæÎª¹ÇÍ·µÄĞÅÏ¢
+			//æŠ½å–éª¨å¤´
+			//æŠ½å–ç­‰å€¼é¢ä¸ºéª¨å¤´çš„ä¿¡æ¯
 			vtkMarchingCubes *boneExtractor = vtkMarchingCubes::New();
 			boneExtractor->SetInputConnection(readerImageCast->GetOutputPort());
-			boneExtractor->SetValue(0, 1150); //ÉèÖÃÌáÈ¡µÄµÈÖµĞÅÏ¢
+			boneExtractor->SetValue(0, 1150); //è®¾ç½®æå–çš„ç­‰å€¼ä¿¡æ¯
 			vtkPolyDataNormals *boneNormals = vtkPolyDataNormals::New();
 			boneNormals->SetInputConnection(boneExtractor->GetOutputPort());
 			boneNormals->SetFeatureAngle(60.0);
-			//ÌŞ³ı¾ÉµÄ»ò·Ï³ıµÄÊı¾İµ¥Ôª£¬Ìá¸ß»æÖÆËÙ¶È
+			//å‰”é™¤æ—§çš„æˆ–åºŸé™¤çš„æ•°æ®å•å…ƒï¼Œæé«˜ç»˜åˆ¶é€Ÿåº¦
 			vtkStripper *boneStripper = vtkStripper::New();
-			//×¢Òâ£ºvtk6.0ÒÔºóµÄ°æ±¾£¬¹ÜµÀµÄÁ¬½Óº¯ÊıĞŞ¸ÄÎªÁËSetInputConnection()ºÍGetOutputPort().
+			//æ³¨æ„ï¼švtk6.0ä»¥åçš„ç‰ˆæœ¬ï¼Œç®¡é“çš„è¿æ¥å‡½æ•°ä¿®æ”¹ä¸ºäº†SetInputConnection()å’ŒGetOutputPort().
 			boneStripper->SetInputConnection(boneNormals->GetOutputPort());
-			//½¨Á¢Ó³Éä
+			//å»ºç«‹æ˜ å°„
 			vtkPolyDataMapper *boneMapper = vtkPolyDataMapper::New();
-			//×¢Òâ£ºvtk6.0ÒÔºóµÄ°æ±¾£¬¹ÜµÀµÄÁ¬½Óº¯ÊıĞŞ¸ÄÎªÁËSetInputConnection()ºÍGetOutputPort().
+			//æ³¨æ„ï¼švtk6.0ä»¥åçš„ç‰ˆæœ¬ï¼Œç®¡é“çš„è¿æ¥å‡½æ•°ä¿®æ”¹ä¸ºäº†SetInputConnection()å’ŒGetOutputPort().
 			boneMapper->SetInputConnection(boneStripper->GetOutputPort());
 			boneMapper->ScalarVisibilityOff();
-			//½¨Á¢½ÇÉ«
+			//å»ºç«‹è§’è‰²
 			vtkActor *bone = vtkActor::New();
 			bone->SetMapper(boneMapper);
 			bone->GetProperty()->SetDiffuseColor(1, 1, .9412);
@@ -994,7 +985,7 @@ ProjectMainWindow::ProjectMainWindow()
 			mapOutline->SetInputConnection(outlineData->GetOutputPort());
 			vtkActor *outline = vtkActor::New();
 			outline->SetMapper(mapOutline);
-			outline->GetProperty()->SetColor(0, 1, 0); //ÉèÖÃÏÔÊ¾±ß¿òµÄÑÕÉ«
+			outline->GetProperty()->SetColor(0, 1, 0); //è®¾ç½®æ˜¾ç¤ºè¾¹æ¡†çš„é¢œè‰²
 
 			vtkCamera *aCamera = vtkCamera::New();
 			aCamera->SetViewUp(0, 0, -1);
@@ -1052,7 +1043,7 @@ ProjectMainWindow::ProjectMainWindow()
 			mapOutline->SetInputConnection(outlineData->GetOutputPort());
 			vtkActor *outline = vtkActor::New();
 			outline->SetMapper(mapOutline);
-			outline->GetProperty()->SetColor(0, 1, 0); //ÉèÖÃÏÔÊ¾±ß¿òµÄÑÕÉ«
+			outline->GetProperty()->SetColor(0, 1, 0); //è®¾ç½®æ˜¾ç¤ºè¾¹æ¡†çš„é¢œè‰²
 
 			vtkCamera *aCamera = vtkCamera::New();
 			aCamera->SetViewUp(0, 0, -1);
@@ -1091,16 +1082,16 @@ ProjectMainWindow::ProjectMainWindow()
 			
 		vtkSmartPointer<vtkImageMagnify> scale = vtkSmartPointer<vtkImageMagnify>::New();
 		scale->SetInputConnection(rdImageCast->GetOutputPort());
-		scale->SetMagnificationFactors(3, 3, 1); //Í¼Ïñ¸÷¸öÎ¬¶ÈµÄÎ¬·Å
+		scale->SetMagnificationFactors(3, 3, 1); //å›¾åƒå„ä¸ªç»´åº¦çš„ç»´æ”¾
 		scale->InterpolateOn();
 		scale->Update();
 		
-		//ÏÔÊ¾Ëõ·ÅÍ¼Ïñ
+		//æ˜¾ç¤ºç¼©æ”¾å›¾åƒ
 		/*vtkImageViewer2  *viewer = vtkImageViewer2::New();
 		viewer->SetInputConnection(scale->GetOutputPort());
 		viewer->SetInputData(scale->GetOutput());
 		viewer->Render();
-		viewer->SetSize(640, 480);//ÉèÖÃ´°¿Ú´óĞ¡
+		viewer->SetSize(640, 480);//è®¾ç½®çª—å£å¤§å°
 		//viewer->SetColorWindow(256);
 		//viewer->SetColorLevel(200);
 		viewer->SetPosition(0, 0);
@@ -1139,7 +1130,7 @@ ProjectMainWindow::ProjectMainWindow()
 		ren = vtkSmartPointer< vtkRenderer >::New();
 		this->qvtkWidget_4->GetRenderWindow()->AddRenderer(ren);
 		
-		//Í¼ÏñµÄ·Å´ó
+		//å›¾åƒçš„æ”¾å¤§
 		vtkImageShrink3D *scale = vtkImageShrink3D::New();
 		scale->SetInputConnection(rdImageCast->GetOutputPort());
 		scale->SetShrinkFactors(3, 3, 1);
@@ -1188,23 +1179,23 @@ ProjectMainWindow::ProjectMainWindow()
 			vtkSmartPointer<vtkImageLuminance>::New();
 		luminanceFilter->SetInputConnection(rdImageCast->GetOutputPort());
 		luminanceFilter->Update();
-		//Ô­Ê¼ÑİÔ±  
+		//åŸå§‹æ¼”å‘˜  
 		vtkSmartPointer<vtkImageActor> origActor =
 			vtkSmartPointer<vtkImageActor>::New();
 		origActor->SetInputData(rdImageCast->GetOutput());
-		//»Ò¶ÈÑİÔ±  
+		//ç°åº¦æ¼”å‘˜  
 		vtkSmartPointer<vtkImageActor> shiftscaleActor =
 			vtkSmartPointer<vtkImageActor>::New();
 		shiftscaleActor->SetInputData(luminanceFilter->GetOutput());
 		double origView[4] = { 0.0, 0.0, 0.5, 1.0 };
 		double shiftscaleView[4] = { 0.5, 0.0, 1.0, 1.0 };
-		//Ô­Ê¼ÑİÔ±»¯×±  
+		//åŸå§‹æ¼”å‘˜åŒ–å¦†  
 		vtkSmartPointer<vtkRenderer> origRender =
 			vtkSmartPointer<vtkRenderer>::New();
 		origRender->SetViewport(origView);
 		origRender->AddActor(origActor);
 		origRender->ResetCamera();
-		//»Ò¶ÈÑİÔ±»¯×±  
+		//ç°åº¦æ¼”å‘˜åŒ–å¦†  
 		vtkSmartPointer<vtkRenderer> shiftscaleRender =
 			vtkSmartPointer<vtkRenderer>::New();
 		shiftscaleRender->SetViewport(shiftscaleView);
@@ -1245,13 +1236,13 @@ ProjectMainWindow::ProjectMainWindow()
 		std::cout << "MinAreaofCell: " << minArea << std::endl;
 
 		QObject *mySender = sender();
-		//×ª»»Îª°´Å¥ÀàĞÍ
+		//è½¬æ¢ä¸ºæŒ‰é’®ç±»å‹
 		QPushButton *p = (QPushButton *)mySender;
 
 
 		if (NULL != p)
 		{
-			//»ñÈ¡°´Å¥ÄÚÈİ
+			//è·å–æŒ‰é’®å†…å®¹
 			QString str = p->text();
 			if (str == "area")
 			{
@@ -1295,9 +1286,9 @@ ProjectMainWindow::ProjectMainWindow()
 		vtkSmartPointer<vtkVolumeRayCastCompositeFunction>compositeRaycastFunction = vtkSmartPointer<vtkVolumeRayCastCompositeFunction>::New();
 
 		volumeMapper = vtkSmartPointer<vtkVolumeRayCastMapper>::New();
-		volumeMapper->SetVolumeRayCastFunction(compositeRaycastFunction);//ÔØÈëÌå»æÖÆ·½·¨
+		volumeMapper->SetVolumeRayCastFunction(compositeRaycastFunction);//è½½å…¥ä½“ç»˜åˆ¶æ–¹æ³•
 		volumeMapper->SetInputConnection(readerImageCast->GetOutputPort());
-		volumeMapper->SetCropping(1);//¿ªÆôCropping¹¦ÄÜ
+		volumeMapper->SetCropping(1);//å¼€å¯CroppingåŠŸèƒ½
 		QString Xmin=this->lineEdit->text();
 		QString Xmax = this->lineEdit_2->text();
 		QString Ymin = this->lineEdit_3->text();
@@ -1315,7 +1306,7 @@ ProjectMainWindow::ProjectMainWindow()
 		volumeMapper->SetCroppingRegionFlags(0x0002000);
 		vtkSmartPointer<vtkVolume>volume = vtkSmartPointer<vtkVolume>::New();
 		volume->SetMapper(volumeMapper);
-		volume->SetProperty(volumeProperty);//ÉèÖÃÌåÊôĞÔ
+		volume->SetProperty(volumeProperty);//è®¾ç½®ä½“å±æ€§
 
 		vtkRenderWindowInteractor *iren = this->qvtkWidget_4->GetInteractor();
 		ren->AddVolume(volume);
@@ -1334,10 +1325,10 @@ ProjectMainWindow::ProjectMainWindow()
 
 	void ProjectMainWindow::updateCoords(vtkObject* obj)
 	{
-	// »ñÈ¡½»»¥Æ÷
+	// è·å–äº¤äº’å™¨
 	vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::SafeDownCast(obj);
 
-	// »ñÈ¡Êó±êµÄµ±Ç°Î»ÖÃ
+	// è·å–é¼ æ ‡çš„å½“å‰ä½ç½®
 	int event_pos[2];
 	iren->GetEventPosition(event_pos);
 
