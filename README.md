@@ -52,8 +52,8 @@ TOAST UI products are open source, so you can create a pull request(PR) after yo
 $ git clone https://github.com/researchxr/3DMR.git
 
 # Unzip the file	
-$ unrar x filename.rar
-$ 7z x filename.7z
+$ unrar x BuildFile.rar
+$ 7z x data_example.7z
 
 # Compile
 $ g++ -o Project main.cpp -fPIC -I/path/to/qt/include -L/path/to/qt/lib -lQt5Core -lQt5Gui -lQt5Widgets
