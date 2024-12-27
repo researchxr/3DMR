@@ -14,13 +14,13 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#pull-request-steps">Pull Request Steps</a> •
   <a href="#how-to-ues">How To Use</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
 </p>
 
 
+![screenshot](3DMR.gif)
 
 ## 🚩Key Features
 
