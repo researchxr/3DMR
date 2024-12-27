@@ -1,8 +1,8 @@
 <h1 align="center">
-  <br>
+  <img src="logo.png" alt="Logo" width="35" height="28" />
   3DMR
-  <br>
 </h1>
+
 
 <h4 align="center">VTK-based Medical 3D Image Reconstruction System</h4>
 
