@@ -7,9 +7,9 @@
 <h4 align="center">VTK-based Medical 3D Image Reconstruction System</h4>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/npm-v1.0.0-blue.svg?style=plastic" alt="Gitter">
-    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic" alt="Gitter">
-    <img src="https://img.shields.io/badge/</>-C++-red.svg?style=plastic" alt="Gitter">
+    <img src="https://img.shields.io/badge/npm-v1.0.0-blue.svg?style=plastic" alt="npm">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic" alt="license">
+    <img src="https://img.shields.io/badge/C%2B%2B-red.svg?style=plastic" alt="C++">
 </p>
 
 <p align="center">
