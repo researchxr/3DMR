@@ -39,7 +39,7 @@
 * Volume and Surface Area Calculation of 3D Models
   * Computes the volume and surface area of the reconstructed tissue model and displays the results in a label box.
 
-## 🚀How To Use
+## 🔧How To Use
 ```shell
 # Clone this repository
 $ git clone https://github.com/researchxr/3DMR.git
