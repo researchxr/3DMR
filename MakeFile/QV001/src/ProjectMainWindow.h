@@ -1,11 +1,3 @@
- /**********************************************************************
-
-  ÎÄ¼şÃû: ProjectMainWindow.h
-  Copyright (c) °¢BinÏÈÉú. All rights reserved.
-  ¸ü¶àĞÅÏ¢Çë·ÃÎÊ: http://blog.csdn.net/webzhuce
-
-  **********************************************************************/
-
 #ifndef Project_MainWindow_H
 #define Project_MainWindow_H
 
@@ -42,36 +34,36 @@ public:
 	~ProjectMainWindow();
 
 private slots:
-	//ÏìÓ¦´ò¿ªÍ¼ÏñÎÄ¼şµÄ²Ûº¯Êı
-	void onOpenSlotDCM();//´ò¿ªdcmÍ¼Ïñ
-	void onOpenSlotJPG();//´ò¿ªjpgÍ¼Ïñ
-	void onOpenSlotBMP();//´ò¿ªbmpÍ¼Ïñ
-	void onOpenlistphoto();//¶ÁÈ¡ĞòÁĞÍ¼Ïñ
+	//å“åº”æ‰“å¼€å›¾åƒæ–‡ä»¶çš„æ§½å‡½æ•°
+	void onOpenSlotDCM();//æ‰“å¼€dcmå›¾åƒ
+	void onOpenSlotJPG();//æ‰“å¼€jpgå›¾åƒ
+	void onOpenSlotBMP();//æ‰“å¼€bmpå›¾åƒ
+	void onOpenlistphoto();//è¯»å–åºåˆ—å›¾åƒ
 
-	void threeD_module();//ÈıÎ¬½¨Ä££¨Ìå»æÖÆ£©
-	void area_module();//Ãæ»æÖÆ
+	void threeD_module();//ä¸‰ç»´å»ºæ¨¡ï¼ˆä½“ç»˜åˆ¶ï¼‰
+	void area_module();//é¢ç»˜åˆ¶
 
-	void Zoom();//Í¼ÏñËõĞ¡
-	void Amplify();//Í¼Ïñ·Å´ó
+	void Zoom();//å›¾åƒç¼©å°
+	void Amplify();//å›¾åƒæ”¾å¤§
 
-	void gray();//Í¼Ïñ»Ò¶È
+	void gray();//å›¾åƒç°åº¦
 
-	void volumeph();//Ìå»ı
-	//void areaph();//Ãæ»ı
+	void volumeph();//ä½“ç§¯
+	//void areaph();//é¢ç§¯
 
-	void On_pushButton();//°´ÏÂ°´Å¥
-	void Slider();//»¬¶¯ĞòÁĞ»¬¿é
-	void Slider_grey();//»¬¶¯»Ò¶È»¬¿é
+	void On_pushButton();//æŒ‰ä¸‹æŒ‰é’®
+	void Slider();//æ»‘åŠ¨åºåˆ—æ»‘å—
+	void Slider_grey();//æ»‘åŠ¨ç°åº¦æ»‘å—
 
-	void lable();//±ê×¢
+	void lable();//æ ‡æ³¨
 
-	//ÏìÓ¦Êó±êÒÆ¶¯µÄÏûÏ¢£¬ÊµÊ±Êä³öÊó±êµÄµ±Ç°Î»ÖÃ
+	//å“åº”é¼ æ ‡ç§»åŠ¨çš„æ¶ˆæ¯ï¼Œå®æ—¶è¾“å‡ºé¼ æ ‡çš„å½“å‰ä½ç½®
 	void updateCoords(vtkObject* obj);
 
-	void three_get();//ÌáÈ¡ÈıÎ¬Á¢ÌåÇøÓò
-	void three_gray();//»¬¶¯Á¢Ìå»Ò¶È±ä»¯
+	void three_get();//æå–ä¸‰ç»´ç«‹ä½“åŒºåŸŸ
+	void three_gray();//æ»‘åŠ¨ç«‹ä½“ç°åº¦å˜åŒ–
 
-	void save();//±£´æÎÄµµ
+	void save();//ä¿å­˜æ–‡æ¡£
 
 protected:
     vtkSmartPointer< vtkResliceImageViewer > riw[3];
