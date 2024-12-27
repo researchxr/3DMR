@@ -20,7 +20,7 @@
 </p>
 
 
-![screenshot](3DMR.gif)
+![screenshot](https://github.com/researchxr/3DMR/blob/main/readme/3DMR.gif)
 
 ## 🚩Key Features
 
