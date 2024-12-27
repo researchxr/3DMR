@@ -17,7 +17,6 @@
   <a href="#pull-request-steps">Pull Request Steps</a> •
   <a href="#how-to-ues">How To Use</a> •
   <a href="#credits">Credits</a> •
-  <a href="#but-me-a-coffee">Buy me a coffee</a> •
   <a href="#license">License</a>
 </p>
 
@@ -59,11 +58,6 @@ This software uses the following open source packages:
 - [Qt designer](https://www.pythonguis.com/installation/install-qt-designer-standalone/)
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/zh-hans/#vs-section)
 
-## 🍞Buy me a coffee
-
-Whether you use this project, have learned something from it, or just like it, please consider supporting it by buying me a coffee, so I can dedicate more time on open-source projects like this :)
-
-<a href="https://www.buymeacoffee.com/igorantun" target="_blank"><img src="orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ## 📜 License
 
