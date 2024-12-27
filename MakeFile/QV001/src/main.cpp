@@ -1,11 +1,3 @@
-/**********************************************************************
-
-文件名: main.cpp
-Copyright (c) 阿Bin先生. All rights reserved.
-更多信息请访问: http://blog.csdn.net/webzhuce
-
-**********************************************************************/
-
 #include "ProjectMainWindow.h"
 #include <QTextCodec>
 
