@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img src="logo2.png" alt="Logo" width="40" height="35" />
-  3DMR
+<!--   <img src="logo2.png" alt="Logo" width="40" height="35" /> -->
+  🧠 3DMR
 </h1>
 
 
